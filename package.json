@@ -1,0 +1,25 @@
+{
+  "name": "shorten-service",
+  "version": "1.0.0",
+  "main": "dist/handler.js",
+  "scripts": {
+    "build": "esbuild src/handler.ts --bundle --minify --sourcemap --platform=node --target=node20 --outfile=dist/handler.js",
+    "zip": "powershell -Command \"Compress-Archive -Path dist/handler.js, dist/handler.js.map -DestinationPath dist/index.zip -Force\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.161",
+    "@types/node": "^25.8.0",
+    "esbuild": "^0.28.0",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.1047.0",
+    "@aws-sdk/lib-dynamodb": "^3.1047.0",
+    "nanoid": "^3.3.12"
+  }
+}
