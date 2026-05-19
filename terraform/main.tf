@@ -81,6 +81,13 @@ resource "aws_lambda_function" "shorten" {
 resource "aws_apigatewayv2_api" "main" {
   name          = "${var.project_name}-api-${var.environment}"
   protocol_type = "HTTP"
+
+  cors_configuration {
+    allow_headers = ["*"]
+    allow_methods = ["OPTIONS", "POST"]
+    allow_origins = ["*"]
+    max_age       = 300
+  }
 }
 
 resource "aws_apigatewayv2_stage" "dev" {
