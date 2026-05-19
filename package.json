@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "dist/handler.js",
   "scripts": {
-    "build": "esbuild src/handler.ts --bundle --minify --sourcemap --platform=node --target=node20 --outfile=dist/handler.js",
+    "build": "esbuild src/handler.ts --bundle --minify --sourcemap --platform=node --target=node20 --outfile=dist/handler.js && powershell -Command \"Compress-Archive -Path dist/handler.js, dist/handler.js.map -DestinationPath dist/index.zip -Force\"",
     "zip": "powershell -Command \"Compress-Archive -Path dist/handler.js, dist/handler.js.map -DestinationPath dist/index.zip -Force\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"No automated tests configured\""
   },
   "keywords": [],
   "author": "",

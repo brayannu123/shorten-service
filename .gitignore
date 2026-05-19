@@ -4,4 +4,3 @@ dist/
 terraform.tfstate*
 .terraform/
 *.zip
-.terraform.lock.hcl
